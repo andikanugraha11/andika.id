@@ -4,5 +4,8 @@
   "description": "\"# andika.id\"",
   "dependencies": {
     "express": "^4.16.3"
+  },
+  "scripts": {
+    "start": "node app.js"
   }
 }
