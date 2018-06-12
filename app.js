@@ -38,8 +38,9 @@ app.get('/', (req, res) => {
     // let visitor = 'hehe';
 
     require('dns').reverse(req.connection.remoteAddress, function(err, domains) {
+        console.log(domains)
         const visitor_data = {
-            visitor: domains[0]
+            visitor: domains
         }
         
         const newVisit = new Visitor(visitor_data);
