@@ -35,21 +35,24 @@ app.get('/index', (req,res) =>{
 
 const port = process.env.PORT || 5000;
 app.get('/', (req, res) => {
-    
-    const visitor = {
-        visitor: os.hostname()
-    }
-    console.log('hehe')
-    console.log(visitor)
-    const newVisit = new Visitor(visitor);
-    newVisit.save(function (err) {
-        if (!err){
-            res.sendFile(path.join(__dirname, 'public/index.html'))
-        }else{
-            console.log(err)
+    // let visitor = 'hehe';
+
+    require('dns').reverse(req.connection.remoteAddress, function(err, domains) {
+        const visitor_data = {
+            visitor: domains[0]
         }
         
-    })
+        const newVisit = new Visitor(visitor_data);
+        newVisit.save(function (err) {
+            if (!err){
+                res.sendFile(path.join(__dirname, 'public/index.html'))
+            }else{
+                console.log(err)
+            }
+            
+        })
+    });
+    
     
 });
 
