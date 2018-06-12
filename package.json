@@ -3,7 +3,8 @@
   "version": "",
   "description": "\"# andika.id\"",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mongoose": "^5.1.5"
   },
   "scripts": {
     "start": "node app.js"
